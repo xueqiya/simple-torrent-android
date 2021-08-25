@@ -4,7 +4,6 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 27
 
-
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 27
@@ -12,7 +11,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -48,8 +46,5 @@ dependencies {
 //    api "com.frostwire:jlibtorrent-android-x86:$version_jlibtorrent"
 //    api "com.frostwire:jlibtorrent-android-x86_64:$version_jlibtorrent"
 
-    api files('libs/jlibtorrent-1.2.13.0.jar')
-}
-repositories {
-    mavenCentral()
+    api files('libs/jlibtorrent-1.2.14.0.jar')
 }
