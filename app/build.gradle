@@ -12,32 +12,13 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
-            abiFilters 'armeabi-v7a'
+            abiFilters 'armeabi-v7a','arm64-v8a'
         }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-ext.abiCodes = [
-        'armeabi-v7a': 1,
-        'arm64-v8a'  : 2,
-        'x86'        : 3,
-        'x86_64'     : 4
-]
-
-import com.android.build.OutputFile
-
-android.applicationVariants.all { variant ->
-    variant.outputs.each { output ->
-        def baseAbiVersionCode = project.ext.abiCodes.get(output.getFilter(OutputFile.ABI))
-
-        if (baseAbiVersionCode != null) {
-            output.versionCodeOverride = baseAbiVersionCode * 10000000 + variant.versionCode
         }
     }
 }
