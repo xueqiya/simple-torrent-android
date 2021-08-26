@@ -10,15 +10,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     compileOptions {
@@ -27,18 +19,13 @@ android {
     }
 }
 
-ext {
-    version_support = '27.1.1'
-    version_jlibtorrent = '1.2.0.16'
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:appcompat-v7:$version_support"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 //    jLibTorrent
 //    api "com.frostwire:jlibtorrent:$version_jlibtorrent"
@@ -47,9 +34,9 @@ dependencies {
 //    api "com.frostwire:jlibtorrent-android-x86:$version_jlibtorrent"
 //    api "com.frostwire:jlibtorrent-android-x86_64:$version_jlibtorrent"
 
+    api files('libs/jlibtorrent-1.2.14.0.jar')
     api files('libs/jlibtorrent-android-arm64-1.2.14.0.jar')
     api files('libs/jlibtorrent-android-arm-1.2.14.0.jar')
     api files('libs/jlibtorrent-android-x86-1.2.14.0.jar')
     api files('libs/jlibtorrent-android-x86_64-1.2.14.0.jar')
-    api files('libs/jlibtorrent-1.2.14.0.jar')
 }

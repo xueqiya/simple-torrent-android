@@ -7,10 +7,10 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.support.design.widget.TabLayout
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.AppCompatButton
+import com.google.android.material.tabs.TabLayout
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import com.masterwok.demosimpletorrentandroid.R
 import com.masterwok.demosimpletorrentandroid.adapters.TabFragmentPagerAdapter
 import com.masterwok.demosimpletorrentandroid.fragments.TorrentFragment
@@ -29,7 +29,6 @@ import com.nononsenseapps.filepicker.FilePickerActivity
  * goes to sleep.
  */
 class MainActivity : AppCompatActivity() {
-
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager
     private lateinit var buttonAddTorrent: AppCompatButton
@@ -39,8 +38,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val torrentUrls = arrayOf(
-        "http://www.frostclick.com/torrents/video/animation/Big_Buck_Bunny_1080p_surround_frostclick.com_frostwire.com.torrent",
         "magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10&dn=Sintel&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.empire-js.us%3A1337&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&ws=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2F&xs=https%3A%2F%2Fwebtorrent.io%2Ftorrents%2Fsintel.torrent",
+        "http://www.frostclick.com/torrents/video/animation/Big_Buck_Bunny_1080p_surround_frostclick.com_frostwire.com.torrent",
         "magnet:?xt=urn:btih:581baa2d4772fb1f1738d4321644cdfb02b78fd8&dn=%e9%98%b3%e5%85%89%e7%94%b5%e5%bd%b1www.ygdy8.com.%e9%80%9f%e5%ba%a6%e4%b8%8e%e6%bf%80%e6%83%859.2021.1080P.%e5%9b%bd%e8%8b%b1%e5%8f%8c%e8%af%ad%e5%8f%8c%e5%ad%97.mkv&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2fexodus.desync.com%3a6969%2fannounce"
     )
 
@@ -133,6 +132,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+        super.onActivityResult(requestCode, resultCode, intent)
         if (requestCode != FilePickerRequestCode
                 || resultCode != Activity.RESULT_OK
                 || intent == null) {
