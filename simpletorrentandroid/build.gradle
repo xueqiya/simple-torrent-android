@@ -2,11 +2,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 30
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -46,5 +47,9 @@ dependencies {
 //    api "com.frostwire:jlibtorrent-android-x86:$version_jlibtorrent"
 //    api "com.frostwire:jlibtorrent-android-x86_64:$version_jlibtorrent"
 
+    api files('libs/jlibtorrent-android-arm64-1.2.14.0.jar')
+    api files('libs/jlibtorrent-android-arm-1.2.14.0.jar')
+    api files('libs/jlibtorrent-android-x86-1.2.14.0.jar')
+    api files('libs/jlibtorrent-android-x86_64-1.2.14.0.jar')
     api files('libs/jlibtorrent-1.2.14.0.jar')
 }
